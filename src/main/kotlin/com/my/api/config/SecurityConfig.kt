@@ -15,7 +15,8 @@ class SecurityConfig(
 ) : WebSecurityConfigurerAdapter(){
 
     override fun configure(web: WebSecurity) {
-        web.ignoring().antMatchers(*whiteList.toTypedArray())
+        web.ignoring()
+            .antMatchers(*whiteList.toTypedArray())
     }
 
     override fun configure(http: HttpSecurity) {
@@ -36,8 +37,6 @@ class SecurityConfig(
             }
 
         http.authorizeRequests()
-            .antMatchers(*whiteList.toTypedArray())
-            .permitAll()
             .anyRequest()
             .authenticated()
     }
