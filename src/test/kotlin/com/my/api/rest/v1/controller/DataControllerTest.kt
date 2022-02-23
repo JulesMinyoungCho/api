@@ -1,6 +1,7 @@
 package com.my.api.rest.v1.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.my.api.rest.v1.domain.req.DataRequest
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,8 +19,7 @@ internal class DataControllerTest {
     @Autowired
     private lateinit var mockMvc: MockMvc
 
-    @Autowired
-    private lateinit var objectMapper: ObjectMapper
+    private val objectMapper = jacksonObjectMapper()
 
     @Test
     fun createData() {
